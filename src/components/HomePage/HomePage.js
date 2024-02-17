@@ -84,7 +84,6 @@ const HomePage = ({ hidePage, setHidePage }) => {
               style={{ display: "flex", alignItems: "center" }}
             >
               <img className="App-logo" src={logo} alt="3D NOUNS" />
-              <p className="special-font-style main-title-homepage">3D NOUNS</p>
 
               <div className="tw-flex-grow" />
 
@@ -226,9 +225,9 @@ const HomePage = ({ hidePage, setHidePage }) => {
               </div>
               <div className="homepage-text-block">
                 <p className="homepage-text">
-                  There are 250 CCO assets available for your enjoyement!
-                  Customize your character, animate and download it as a GLTF
-                  file.
+                  There are 250 CC0 (Creative Commons Zero) assets available for
+                  your enjoyment! Customize your character, animate it, and
+                  download the result as a GLTF file.
                   <br></br>
                   <br></br>
                   You can import GLTF files in 3D programs like{" "}
@@ -245,17 +244,18 @@ const HomePage = ({ hidePage, setHidePage }) => {
                   />{" "}
                   using this{" "}
                   <Link
-                    text={"script"}
+                    text={"script."}
                     url={
                       "https://gist.github.com/sgarcia22/b80f65d33ccfc3e449f46c47ec933c9f"
                     }
                     leavesPage={true}
                     style={{ fontSize: "1.3rem" }}
                   />{" "}
-                  .<br></br>
                   <br></br>
-                  You can consider 3D printing them by converting the GLTF to
-                  FBX with Blender and then to a STL file suitable for printing.
+                  <br></br>
+                  Consider 3D printing them by converting the GLTF files to FBX
+                  format with Blender, and then to STL files, which are suitable
+                  for printing.
                 </p>
               </div>
             </div>

@@ -372,7 +372,7 @@ const Menu = ({
               }}
               disabled={disabledButtonState}
             >
-              <p className="special-font-style "> GENERATE!</p>
+              <p className="special-font-style ">GENERATE!</p>
             </button>
             <button
               style={{ marginLeft: "20px", marginRight: "0px" }}
@@ -394,7 +394,7 @@ const Menu = ({
               }}
             >
               {/* <BsCameraFill size={20} color="black" /> */}
-              <p className="special-font-style "> STUDIO </p>
+              <p className="special-font-style ">STUDIO</p>
             </button>
             <button
               className="screenshot-button bg-white"
@@ -422,7 +422,7 @@ const Menu = ({
               className="menu-button-options "
               style={{ marginLeft: "20px", background: "#121212" }}
             >
-              <p className="special-font-style "> OPTIONS </p>
+              <p className="special-font-style ">OPTIONS</p>
             </button>
           </div>
         ) : null}
@@ -534,7 +534,7 @@ const Menu = ({
             }}
           >
             {/* <BsCameraFill size={20} color="black" /> */}
-            <p className="special-font-style font-white"> STUDIO </p>
+            <p className="special-font-style font-white">STUDIO</p>
           </button>
           <button
             className="menu-button"

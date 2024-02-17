@@ -938,7 +938,7 @@ input::placeholder {
   .options-menu-x-button {
     display: inline-block;
     text-align: center;
-    padding: 0px 15px 0px 15px;
+    padding: 0px 5px 0px 5px;
     height: 40px;
     outline: none;
     color: black;
@@ -951,7 +951,7 @@ input::placeholder {
     border: 1px solid rgb(128, 128, 128);
     border-radius: 5px;
     text-align: center;
-    margin-left: 40px;
+    margin-left: 10px;
   }
   .options-menu-x-button:hover {
     background-color: rgb(225, 225, 225);
