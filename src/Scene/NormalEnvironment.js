@@ -7,25 +7,37 @@ import City from "./City";
 import BlockPark from "./BlockPark";
 import BlockTNS from "./BlockTNS";
 import BlockPH from "./BlockPH";
-import Block1 from "./Block1";
-import Block2 from "./Block2";
+import Pyramid from "./Pyramid";
+
+import BlockSideLeft from "./BlockSideLeft";
+import BlockSideRight from "./BlockSideRight";
+
+import BlockUgly from "./BlockUgly";
+import BlockUgly2 from "./BlockGenericLeft";
 
 const NormalEnvironment = ({ environment }) => {
   const SPEED = isMobile ? 0.5 : 1;
+  const ROTATE = isMobile ? 0.5 : 1;
 
   const truck = useGLTF("/world/cocatruck.glb");
   const taxi = useGLTF("/world/taxi.glb");
   const neppelin = useGLTF("/world/Neppelin.glb");
+  const ETH = useGLTF("/world/ETHSign.glb");
+  const PHLight = useGLTF("/world/PHLight.glb");
 
   const truckRef = useRef();
   const taxiRef = useRef();
   const neppelinRef = useRef();
+  const ETHRef = useRef();
+  const PHLightRef = useRef();
 
   const [showTruck, setShowTruck] = useState(true);
   const [showTaxi, setShowTaxi] = useState(isMobile ? false : true);
   const [showNeppelin, setShowNeppelin] = useState(true);
+  const [showETH, setShowETH] = useState(true);
+  const [showPHLight, setShowPHLight] = useState(true);
 
-  useFrame(() => {
+  useFrame((state, delta) => {
     if (truckRef.current && showTruck) {
       truckRef.current.position.x += SPEED;
       if (truckRef.current.position.x > 2300) {
@@ -46,6 +58,28 @@ const NormalEnvironment = ({ environment }) => {
         setShowNeppelin(false);
         delayNeppelin();
       }
+    }
+    if (ETHRef.current && showETH) {
+      ETHRef.current.position.x = 1870;
+      ETHRef.current.position.y = 1050;
+      ETHRef.current.position.z = -350;
+      ETHRef.current.rotation.y += ROTATE * 0.005; // Adjust this factor as needed for smooth rotation
+    }
+
+    if (PHLightRef.current && showPHLight) {
+      // Use time or an accumulator to continuously change the position
+      const time = state.clock.getElapsedTime();
+      // Define the amplitude (range) of the movement and frequency (speed)
+      const amplitude = 15; // This controls how high and low the mesh goes
+      const frequency = 3; // This controls the speed of the up and down motion
+
+      // Calculate the new Y position using a sine wave
+      const newYPosition = Math.sin(time * frequency) * amplitude;
+
+      // Apply the new Y position to the mesh, adjusting the base height as needed
+      PHLightRef.current.position.z = -40;
+      PHLightRef.current.position.x = -120;
+      PHLightRef.current.position.y = 20 + newYPosition; // Adjust '50' based on the initial Y position of your mesh
     }
   });
 
@@ -98,7 +132,7 @@ const NormalEnvironment = ({ environment }) => {
   return (
     <>
       {environment === "Normal" || environment === "VoidDay" ? (
-        <fog attach="fog" args={[new THREE.Color(0xffffff), 1, 2500]} />
+        <fog attach="fog" args={[new THREE.Color(0xe8fdff), 1, 2900]} />
       ) : null}
       {environment === "Matrix" ? (
         <fog attach="fog" args={[new THREE.Color(0x181818), 1, 2500]} />
@@ -120,11 +154,15 @@ const NormalEnvironment = ({ environment }) => {
         />
       ) : null}
       <City environment={environment} />
-      <BlockPark environment={environment} />
+
       <BlockTNS environment={environment} />
       <BlockPH environment={environment} />
-      <Block1 environment={environment} />
-      <Block2 environment={environment} />
+      <BlockSideLeft environment={environment} />
+      <BlockSideRight environment={environment} />
+      <BlockPark environment={environment} />
+      <Pyramid environment={environment} />
+      <BlockUgly environment={environment} />
+      <BlockUgly2 environment={environment} />
 
       {environment === "Normal" || environment === "Matrix" ? (
         <>
@@ -162,6 +200,34 @@ const NormalEnvironment = ({ environment }) => {
                 geometry={neppelin.nodes.Neppelin.geometry}
                 material={neppelin.materials.Neppelin_material}
                 position={[1800, 50, 0]}
+                rotation={[Math.PI / 2, 0, 0]}
+                scale={[3, 3, 3]}
+              />
+            </group>
+          )}
+
+          {ETH && ETH.nodes && ETH.materials && (
+            <group ref={ETHRef} dispose={null} visible={showETH}>
+              <mesh
+                castShadow
+                receiveShadow
+                geometry={ETH.nodes.EthSign.geometry}
+                material={ETH.materials.EthSign_material}
+                position={[0, 50, 0]}
+                rotation={[Math.PI / 2, 0, 0]}
+                scale={[3, 3, 3]}
+              />
+            </group>
+          )}
+
+          {PHLight && PHLight.nodes && PHLight.materials && (
+            <group ref={PHLightRef} dispose={null} visible={showPHLight}>
+              <mesh
+                castShadow
+                receiveShadow
+                geometry={PHLight.nodes.PHLight.geometry}
+                material={PHLight.materials.PHLight_material}
+                position={[0, 50, 0]}
                 rotation={[Math.PI / 2, 0, 0]}
                 scale={[3, 3, 3]}
               />

@@ -152,19 +152,19 @@ const NounCanvas = ({ hidePage, setHidePage }) => {
           makeDefault
           name="PerspectiveCamera"
           ref={cameraRef}
-          position={[-20, 40, 70]}
+          position={[-20, 40, 90]}
           near={0.1}
-          far={2200}
+          far={20200}
         />
         <Lighting environmentParam={environment} />
         <OrbitControls
           target={[0, 20, 0]}
           ref={orbitControls}
           autoRotate={JSON.parse(autoRotate)}
-          enablePan={false}
+          enablePan={true}
           enableDamping={true}
           maxPolarAngle={Math.PI / 1.85}
-          maxDistance={150}
+          maxDistance={10050}
           minDistance={30}
           //Mouse Orbiting
           // maxDistance={90}150

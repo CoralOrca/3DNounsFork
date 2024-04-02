@@ -13,7 +13,7 @@ const Block_PH = ({ environment }) => {
             castShadow
             receiveShadow
             geometry={nodes.Block_PH.geometry}
-            material={materials.Block_PH_material}
+            material={materials.PH_Block_material}
             position={[80, 0, 0]}
             rotation={[Math.PI / 2, 0, 0]}
             scale={3.5}

@@ -1,6 +1,4 @@
-import React, { forwardRef, useRef } from "react";
 import { useGLTF } from "@react-three/drei";
-import * as THREE from "three";
 
 const Block_TNS = ({ environment }) => {
   const { nodes, materials } = useGLTF("/world/Block_TNS.glb");
@@ -12,8 +10,8 @@ const Block_TNS = ({ environment }) => {
           <mesh
             castShadow
             receiveShadow
-            geometry={nodes.Block_TNS.geometry}
-            material={materials.Block_TNS_material}
+            geometry={nodes.TNS_Block.geometry}
+            material={materials.TNS_Block_material}
             position={[80, 0, 0]}
             rotation={[Math.PI / 2, 0, 0]}
             scale={3.5}

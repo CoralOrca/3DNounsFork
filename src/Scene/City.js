@@ -11,7 +11,7 @@ const City = ({ environment }) => {
             castShadow
             receiveShadow
             geometry={nodes.Block_OG.geometry}
-            material={materials.Block_OG_material1}
+            material={materials.Block_OG_material}
             position={[80, 0, 0]}
             rotation={[Math.PI / 2, 0, 0]}
             scale={3.5}
