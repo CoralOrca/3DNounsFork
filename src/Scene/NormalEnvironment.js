@@ -22,7 +22,7 @@ const NormalEnvironment = ({ environment }) => {
   const truck = useGLTF("/world/cocatruck.glb");
   const taxi = useGLTF("/world/taxi.glb");
   const neppelin = useGLTF("/world/Neppelin.glb");
-  const ETH = useGLTF("/world/ETHSign.glb");
+  const ETH = useGLTF("/world/EthSign.glb");
   const PHLight = useGLTF("/world/PHLight.glb");
 
   const truckRef = useRef();
@@ -154,7 +154,6 @@ const NormalEnvironment = ({ environment }) => {
         />
       ) : null}
       <City environment={environment} />
-
       <BlockTNS environment={environment} />
       <BlockPH environment={environment} />
       <BlockSideLeft environment={environment} />
